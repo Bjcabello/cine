@@ -2,6 +2,7 @@ import { Routes } from '@angular/router';
 import { InicioSesionComponent } from './componentes/inicio-sesion/inicio-sesion.component';
 import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 import { ListadoPeliculasComponent } from './componentes/peliculas/listado-peliculas/listado-peliculas.component';
+import { FormularioPeliculaComponent } from './componentes/formulario/formulario-pelicula/formulario-pelicula.component';
 
 export const routes: Routes = [
   { path: '', component: InicioSesionComponent },
@@ -12,5 +13,6 @@ export const routes: Routes = [
         (m) => m.DashboardComponent
       ),
   },
-  { path: 'peliculas', component: ListadoPeliculasComponent }
+  { path: 'peliculas', component: ListadoPeliculasComponent },
+  { path: 'peliculas/nueva', component: FormularioPeliculaComponent  }
 ];

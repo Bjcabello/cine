@@ -7,19 +7,20 @@ Este proyecto permite:
 Dependencias principales:
 
     express .
-    pg 
-    cors 
+    pg
+    cors
     dotenv
 
 🔧 Dependencias de desarrollo:
 
-    typescript 
-    ts-node-dev 
-    @types/express 
-    @types/node 
-    @types/cors 
+    typescript
+    ts-node-dev
+    @types/express
+    @types/node
+    @types/cors
 
+ANGULAR.js
 
+solo boootrap se instalo ya que es solo lectura no esta trayendo nada de la base de datos
 
-ANGULAR
-- Interfaz en Angular para login, dashboard (solo lectura no injecta).
+- Interfaz en Angular para login ![alt text](img/image-8.png), dashboard![alt text](img/image-9.png) y el formulario de crear pelicula ![alt text](img/image-10.png)(solo lectura no injecta desde la base de datos).
