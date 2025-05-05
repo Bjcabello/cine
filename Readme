@@ -1,11 +1,25 @@
-API RESTful desarrollada con Node.js, Express, TypeScript y PostgreSQL para la gestión de salas de cine y películas, que permite operaciones CRUD, validaciones, lógica de negocio personalizada, eliminación lógica, documentación con Swagger y pruebas con Postman. Incluye frontend en Angular.
-
-Descripción
+NODE.JS
 
 Este proyecto permite:
 
-- Crear, leer, actualizar y eliminar películas y salas de cine.
-- Validar fechas de publicación de películas.
-- Controlar cuántas películas puede tener una sala.
-- Realizar búsquedas por nombre y disponibilidad.
-- Interfaz en Angular para login, dashboard y formularios.
+- Crear ![alt text](img/image-1.png), leer ![alt text](img/image-2.png), actualizar ![alt text](img/image-3.png)y eliminar películas ![alt text](img/image-4.png) y salas de cine ![alt text](img/image-7.png).
+
+Dependencias principales:
+
+    express .
+    pg 
+    cors 
+    dotenv
+
+🔧 Dependencias de desarrollo:
+
+    typescript 
+    ts-node-dev 
+    @types/express 
+    @types/node 
+    @types/cors 
+
+
+
+ANGULAR
+- Interfaz en Angular para login, dashboard (solo lectura no injecta).
