@@ -1,0 +1,18 @@
+.contenedor-login {
+    max-width: 300px;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    text-align: center;
+  }
+  .contenedor-login input {
+    width: 100%;
+    margin: 8px 0;
+    padding: 8px;
+  }
+  .contenedor-login button {
+    width: 100%;
+    padding: 10px;
+  }
+  
