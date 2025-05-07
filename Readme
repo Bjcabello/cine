@@ -10,6 +10,7 @@ Dependencias principales:
     pg
     cors
     dotenv
+    morgan
 
 🔧 Dependencias de desarrollo:
 
@@ -18,6 +19,9 @@ Dependencias principales:
     @types/express
     @types/node
     @types/cors
+    @types/swagger-jsdoc
+    @types/swagger-ui-express
+    @types/pg
 
 ANGULAR.js
 
