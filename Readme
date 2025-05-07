@@ -11,6 +11,8 @@ Dependencias principales:
     cors
     dotenv
     morgan
+    swagger-jsdoc
+    swagger-ui-express
 
 🔧 Dependencias de desarrollo:
 
@@ -27,4 +29,4 @@ ANGULAR.js
 
 solo boootrap se instalo ya que es solo lectura no esta trayendo nada de la base de datos
 
-- Interfaz en Angular para login ![alt text](img/image-1.png) , dashboard ![alt text](img/image-2.png) y el formulario de crear pelicula (solo lectura no injecta desde la base de datos).
+- Interfaz en Angular para login ![alt text](img/image-1.png) , dashboard ![alt text](img/image-2.png)
