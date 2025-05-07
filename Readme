@@ -23,4 +23,4 @@ ANGULAR.js
 
 solo boootrap se instalo ya que es solo lectura no esta trayendo nada de la base de datos
 
-- Interfaz en Angular para login ![alt text](img/image-8.png), dashboard![alt text](img/image-9.png) y el formulario de crear pelicula ![alt text](img/image-10.png)(solo lectura no injecta desde la base de datos).
+- Interfaz en Angular para login ![alt text](img/image-1.png) , dashboard ![alt text](img/image-2.png) y el formulario de crear pelicula (solo lectura no injecta desde la base de datos).

@@ -1,18 +1,10 @@
 import { Routes } from '@angular/router';
-import { InicioSesionComponent } from './componentes/inicio-sesion/inicio-sesion.component';
-import { DashboardComponent } from './componentes/dashboard/dashboard.component';
-import { ListadoPeliculasComponent } from './componentes/peliculas/listado-peliculas/listado-peliculas.component';
-import { FormularioPeliculaComponent } from './componentes/formulario/formulario-pelicula/formulario-pelicula.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuard } from './guards/auth.guard';
 
 export const routes: Routes = [
-  { path: '', component: InicioSesionComponent },
-  {
-    path: 'dashboard',
-    loadComponent: () =>
-      import('./componentes/dashboard/dashboard.component').then(
-        (m) => m.DashboardComponent
-      ),
-  },
-  { path: 'peliculas', component: ListadoPeliculasComponent },
-  { path: 'peliculas/nueva', component: FormularioPeliculaComponent  }
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: 'login', component: LoginComponent },
+  { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuard] }
 ];
