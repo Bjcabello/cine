@@ -1,14 +1,90 @@
 {
 	"info": {
 		"_postman_id": "9afa1b3f-de7a-476a-bcc4-66c11a577b77",
-		"name": "cine_db",
+		"name": "cine",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "32207509"
 	},
 	"item": [
 		{
-			"name": "Get",
+			"name": "GET",
 			"item": [
+				{
+					"name": "buscar_pelicula",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/peliculas/buscar?nombre=naruto",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"peliculas",
+								"buscar"
+							],
+							"query": [
+								{
+									"key": "nombre",
+									"value": "naruto"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "pelicula_fecha",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/asignaciones/fecha?fecha=2025-05-07",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"asignaciones",
+								"fecha"
+							],
+							"query": [
+								{
+									"key": "fecha",
+									"value": "2025-05-07"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "estado_sala",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/asignaciones/estado/Sala 2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"asignaciones",
+								"estado",
+								"Sala 2"
+							]
+						}
+					},
+					"response": []
+				},
 				{
 					"name": "obtener_peliculas",
 					"request": {
@@ -30,12 +106,12 @@
 					"response": []
 				},
 				{
-					"name": "obtener_pelicula_nombre",
+					"name": "obtener_ID",
 					"request": {
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:3000/api/peliculas/buscar?nombre=Batman",
+							"raw": "http://localhost:3000/api/peliculas/4",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -44,67 +120,7 @@
 							"path": [
 								"api",
 								"peliculas",
-								"buscar"
-							],
-							"query": [
-								{
-									"key": "nombre",
-									"value": "Batman"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "obtener_nombre_sala",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/sala/estado?nombre=Sala 1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"sala",
-								"estado"
-							],
-							"query": [
-								{
-									"key": "nombre",
-									"value": "Sala 1"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "obtener_fecha",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:3000/api/asignacion/fecha?fecha=2024-05-01",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "3000",
-							"path": [
-								"api",
-								"asignacion",
-								"fecha"
-							],
-							"query": [
-								{
-									"key": "fecha",
-									"value": "2024-05-01"
-								}
+								"4"
 							]
 						}
 					},
@@ -128,7 +144,7 @@
 						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nombre\": \"Batman Begins\",\r\n  \"duracion\": 140\r\n}",
+							"raw": "{\r\n  \"nombre\": \"naruto\",\r\n  \"duracion\": 148\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -153,16 +169,22 @@
 			]
 		},
 		{
-			"name": "PUT",
+			"name": "DELETE",
 			"item": [
 				{
-					"name": "actualizar_pelicula_Id",
+					"name": "Eliminar_pelicula",
 					"request": {
-						"method": "PUT",
-						"header": [],
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n  \"nombre\": \"Batman: El Caballero de la Noche\",\r\n  \"duracion\": 152\r\n}",
+							"raw": "",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -170,7 +192,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:3000/api/peliculas/1",
+							"raw": "http://localhost:3000/api/peliculas/2\n",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -179,7 +201,7 @@
 							"path": [
 								"api",
 								"peliculas",
-								"1"
+								"2\n"
 							]
 						}
 					},
@@ -188,13 +210,48 @@
 			]
 		},
 		{
-			"name": "DELETE",
+			"name": "PUT",
 			"item": [
 				{
-					"name": "eliminar_pelicula_id",
+					"name": "actualizar_pelicula",
 					"request": {
-						"method": "GET",
-						"header": []
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nombre\": \"naruto\",\r\n  \"duracion\": 148\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api/peliculas/8",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"peliculas",
+								"8"
+							],
+							"query": [
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
 					},
 					"response": []
 				}
