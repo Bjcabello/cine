@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <h2>Gestión de Películas</h2>
+
+  <form (ngSubmit)="guardarPelicula()">
+    <div class="mb-3">
+      <label>Nombre</label>
+      <input type="text" [(ngModel)]="pelicula.nombre" name="nombre" class="form-control" required />
+    </div>
+    <div class="mb-3">
+      <label>Duración (minutos)</label>
+      <input type="number" [(ngModel)]="pelicula.duracion" name="duracion" class="form-control" required />
+    </div>
+    <button type="submit" class="btn btn-primary me-2">Guardar</button>
+    <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+  </form>
+
+  <hr />
+
+  <h4>Películas Registradas</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Duración</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let p of peliculas">
+        <td>{{ p.nombre }}</td>
+        <td>{{ p.duracion }} min</td>
+        <td>
+          <button class="btn btn-warning btn-sm" (click)="editar(p)">Editar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
