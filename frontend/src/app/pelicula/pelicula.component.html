@@ -1,0 +1,39 @@
+<div class="container mt-4">
+  <h2>Películas</h2>
+  <form (submit)="guardarPelicula()" class="row g-3">
+    <div class="col-md-5">
+      <input [(ngModel)]="nuevaPelicula.nombre" name="nombre" class="form-control" placeholder="Nombre" required />
+    </div>
+    <div class="col-md-5">
+      <input [(ngModel)]="nuevaPelicula.duracion" name="duracion" class="form-control" placeholder="Duración (min)" required type="number" />
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-primary w-100" type="submit">{{ editando ? 'Actualizar' : 'Guardar' }}</button>
+    </div>
+    <div class="col-md-2" *ngIf="editando">
+      <button class="btn btn-secondary w-100" type="button" (click)="cancelar()">Cancelar</button>
+    </div>
+  </form>
+
+  <table class="table mt-4 table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Duración</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let pelicula of peliculas">
+        <td>{{ pelicula.id_pelicula }}</td>
+        <td>{{ pelicula.nombre }}</td>
+        <td>{{ pelicula.duracion }} min</td>
+        <td>
+          <button class="btn btn-warning btn-sm me-2" (click)="editarPelicula(pelicula)">Editar</button>
+          <button class="btn btn-danger btn-sm" (click)="eliminarPelicula(pelicula.id_pelicula)">Eliminar</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
