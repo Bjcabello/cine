@@ -1,46 +1,47 @@
 <div class="container mt-4">
-  <h2>Asignar Película a Sala de Cine</h2>
+  <div class="display-6 text-center">
+    <h2 class="mb-5">Asignar Película a Sala</h2>
+  </div>
 
-  <form (ngSubmit)="asignar()">
-    <div class="mb-3">
-      <label for="pelicula">Película</label>
-      <select [(ngModel)]="asignacion.pelicula" name="pelicula" class="form-control" required>
-        <option *ngFor="let p of peliculas" [value]="p">{{ p }}</option>
+  <form (submit)="asignar()" class="row g-3">
+    <div class="col-md-4">
+      <select [(ngModel)]="nuevaAsignacion.id_pelicula" name="pelicula" class="form-select" required>
+        <option [ngValue]="null" disabled selected>Selecciona Película</option>
+        <option *ngFor="let pelicula of peliculas" [value]="pelicula.id_pelicula">
+          {{ pelicula.nombre }}
+        </option>
       </select>
     </div>
-
-    <div class="mb-3">
-      <label for="sala">Sala</label>
-      <select [(ngModel)]="asignacion.sala" name="sala" class="form-control" required>
-        <option *ngFor="let s of salas" [value]="s">{{ s }}</option>
+    <div class="col-md-4">
+      <select [(ngModel)]="nuevaAsignacion.id_sala_cine" name="sala" class="form-select" required>
+        <option [ngValue]="null" disabled selected>Selecciona Sala</option>
+        <option *ngFor="let sala of salas" [value]="sala.id_sala">
+          {{ sala.nombre }}
+        </option>
       </select>
     </div>
-
-    <div class="mb-3">
-      <label for="fecha">Fecha de Publicación</label>
-      <input type="date" [(ngModel)]="asignacion.fecha" name="fecha" class="form-control" required />
+    <div class="col-md-2">
+      <input type="date" class="form-control" [(ngModel)]="nuevaAsignacion.fecha_publicacion" name="fechaInicio" required>
     </div>
-
-    <button type="submit" class="btn btn-success me-2">Asignar</button>
-    <button type="button" class="btn btn-secondary" (click)="cancelar()">Cancelar</button>
+    <div class="col-md-2">
+      <input type="date" class="form-control" [(ngModel)]="nuevaAsignacion.fecha_fin" name="fechaFin" required>
+    </div>
+    <div class="d-grid">
+      <button class="btn btn-success w-100" type="submit">Asignar</button>
+    </div>
   </form>
 
-  <hr />
-
-  <h4>Asignaciones Realizadas</h4>
-  <table class="table">
-    <thead>
-      <tr>
-        <th>Película</th>
-        <th>Sala</th>
-        <th>Fecha</th>
-      </tr>
-    </thead>
+  <table class="table table-striped mt-4">
+    
     <tbody>
       <tr *ngFor="let a of asignaciones">
-        <td>{{ a.pelicula }}</td>
-        <td>{{ a.sala }}</td>
-        <td>{{ a.fecha }}</td>
+        <td>{{ a.id_pelicula }}</td>
+        <td>{{ a.id_sala_cine }}</td>
+        <td>{{ a.fecha_publicacion }}</td>
+        <td>{{ a.fecha_fin }}</td>
+        <td>
+          <button class="btn btn-danger btn-sm" (click)="eliminar(a.id_pelicula_sala)">Eliminar</button>
+        </td>
       </tr>
     </tbody>
   </table>

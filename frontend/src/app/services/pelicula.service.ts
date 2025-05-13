@@ -12,7 +12,7 @@ export interface Pelicula {
   providedIn: 'root'
 })
 export class PeliculaService {
-  private apiUrl = 'http://localhost:3000/peliculas';
+  private apiUrl = 'http://localhost:3000/api/peliculas';
 
   constructor(private http: HttpClient) {}
 

@@ -1,33 +1,56 @@
-import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AsignacionService, Asignacion } from '../services/asignacion.service';
+import { PeliculaService, Pelicula } from '../services/pelicula.service';
+import { SalaService, Sala } from '../services/sala.service';
 import { FormsModule } from '@angular/forms';
-
-interface Asignacion {
-  pelicula: string;
-  sala: string;
-  fecha: string;
-}
+import { NgFor } from '@angular/common';
 
 @Component({
   selector: 'app-asignacion',
+  imports: [FormsModule, NgFor],
   templateUrl: './asignacion.component.html',
-  imports: [NgFor, FormsModule],
+  styleUrls: ['./asignacion.component.css']
 })
-export class AsignacionComponent {
-  peliculas = ['Titanic', 'Avengers', 'Avatar'];
-  salas = ['Sala 1', 'Sala 2', 'Sala 3'];
-
-  asignacion: Partial<Asignacion> = {};
+export class AsignacionComponent implements OnInit {
   asignaciones: Asignacion[] = [];
+  peliculas: Pelicula[] = [];
+  salas: Sala[] = [];
 
-  asignar() {
-    if (this.asignacion.pelicula && this.asignacion.sala && this.asignacion.fecha) {
-      this.asignaciones.push(this.asignacion as Asignacion);
-      this.cancelar();
+  nuevaAsignacion: Partial<Asignacion> = {};
+
+  constructor(
+    private asignacionService: AsignacionService,
+    private peliculaService: PeliculaService,
+    private salaService: SalaService
+  ) {}
+
+  ngOnInit(): void {
+    this.cargarDatos();
+  }
+
+  cargarDatos(): void {
+    this.asignacionService.getAsignaciones().subscribe(data => this.asignaciones = data);
+    this.peliculaService.getPeliculas().subscribe(data => this.peliculas = data);
+    this.salaService.getSalas().subscribe(data => this.salas = data);
+  }
+
+  asignar(): void {
+    if (
+      this.nuevaAsignacion.id_pelicula &&
+      this.nuevaAsignacion.id_sala_cine &&
+      this.nuevaAsignacion.fecha_publicacion &&
+      this.nuevaAsignacion.fecha_fin
+    ) {
+      this.asignacionService.createAsignacion(this.nuevaAsignacion).subscribe(() => {
+        this.nuevaAsignacion = {};
+        this.cargarDatos();
+      });
     }
   }
 
-  cancelar() {
-    this.asignacion = {};
+  eliminar(id: number): void {
+    this.asignacionService.deleteAsignacion(id).subscribe(() => {
+      this.cargarDatos();
+    });
   }
 }
