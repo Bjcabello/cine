@@ -70,13 +70,3 @@ BEGIN
 END;
 $$ LANGUAGE plpgsql;
 
-SELECT COUNT(*) AS total_peliculas FROM pelicula;
-
-
-SELECT * FROM pelicula, sala_cine, pelicula_sala_cine;
-
-SELECT contar_peliculas_por_sala('Sala 1') AS total_peliculas;
-
-
-SELECT COUNT(DISTINCT id_pelicula) AS peliculas_asignadas
-FROM pelicula_sala_cine;

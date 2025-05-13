@@ -42,7 +42,7 @@ ANGULAR.js
 
 - Angular version 19.2.11
 
-- solo boootrap se instalo ya que es solo lectura no esta trayendo nada de la base de datos
+- bootstrap@5.3.6
 
 - Interfaz en Angular para login ![alt text](img-angular/login.png) , dashboard ![alt text](img-angular/dashboard.png),Crear - Pelicula ![alt text](img-angular/pelicula.png), Sala ![alt text](img-angular/sala.png),
 - Asignar Peliculas![alt text](img-angular/asignacion.png)

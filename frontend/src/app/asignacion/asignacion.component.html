@@ -3,6 +3,27 @@
     <h2 class="mb-5">Asignar Película a Sala</h2>
   </div>
 
+  <!-- Tabla MOVIDA arriba del formulario -->
+  <table class="table table-striped mt-4">
+    <thead>
+      <tr>
+        <th scope="col">Película</th>
+        <th scope="col">Sala</th>
+        <th scope="col">Fecha Inicio</th>
+        <th scope="col">Fecha Fin</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of asignaciones">
+        <td>{{ a.id_pelicula }}</td>
+        <td>{{ a.id_sala_cine }}</td>
+        <td>{{ a.fecha_publicacion }}</td>
+        <td>{{ a.fecha_fin }}</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- Formulario debajo de la tabla -->
   <form (submit)="asignar()" class="row g-3">
     <div class="col-md-4">
       <select [(ngModel)]="nuevaAsignacion.id_pelicula" name="pelicula" class="form-select" required>
@@ -30,19 +51,4 @@
       <button class="btn btn-success w-100" type="submit">Asignar</button>
     </div>
   </form>
-
-  <table class="table table-striped mt-4">
-    
-    <tbody>
-      <tr *ngFor="let a of asignaciones">
-        <td>{{ a.id_pelicula }}</td>
-        <td>{{ a.id_sala_cine }}</td>
-        <td>{{ a.fecha_publicacion }}</td>
-        <td>{{ a.fecha_fin }}</td>
-        <td>
-          <button class="btn btn-danger btn-sm" (click)="eliminar(a.id_pelicula_sala)">Eliminar</button>
-        </td>
-      </tr>
-    </tbody>
-  </table>
 </div>

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms'; // 👈 IMPORTANTE
+import { FormsModule } from '@angular/forms'; 
 
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
-import { PeliculasComponent } from './peliculas/peliculas.component';
-import { SalasComponent } from './salas/salas.component';
+
+import { PeliculaComponent } from './pelicula/pelicula.component';
+import { SalaComponent } from './sala/sala.component';
 import { AsignacionComponent } from './asignacion/asignacion.component';
 import { RouterLink, RouterLinkActive, RouterModule } from '@angular/router';
 import { routes } from './app.routes';
@@ -19,8 +20,8 @@ import { NavbarComponent } from './navbar/navbar.component';
     AppComponent,
     NavbarComponent,
     DashboardComponent,
-    PeliculasComponent,
-    SalasComponent,
+    PeliculaComponent,
+    SalaComponent,
     AsignacionComponent,
     LoginComponent
 
